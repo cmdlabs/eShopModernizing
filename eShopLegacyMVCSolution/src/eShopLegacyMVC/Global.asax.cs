@@ -10,10 +10,7 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+using Microsoft.AspNetCore.Http;
 
 namespace eShopLegacyMVC
 {
@@ -38,8 +35,8 @@ namespace eShopLegacyMVC
         /// </summary>
         protected void Session_Start(Object sender, EventArgs e)
         {
-            HttpContext.Current.Session["MachineName"] = Environment.MachineName;
-            HttpContext.Current.Session["SessionStartTime"] = DateTime.Now;
+            HttpContextHelper.Current.Session["MachineName"] = Environment.MachineName;
+            HttpContextHelper.Current.Session["SessionStartTime"] = DateTime.Now;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -99,7 +96,7 @@ namespace eShopLegacyMVC
     {
         public override string ToString()
         {
-            return HttpContext.Current?.Request?.RawUrl + ", " + HttpContext.Current?.Request?.UserAgent;
+            return HttpContextHelper.Current?.Request?.RawUrl + ", " + HttpContextHelper.Current?.Request?.UserAgent;
         }
     }
 }

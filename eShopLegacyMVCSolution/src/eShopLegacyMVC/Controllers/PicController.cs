@@ -1,8 +1,8 @@
 ﻿using eShopLegacyMVC.Services;
 using log4net;
+using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Net;
-using System.Web.Mvc;
 
 namespace eShopLegacyMVC.Controllers
 {
@@ -28,7 +28,7 @@ namespace eShopLegacyMVC.Controllers
 
             if (catalogItemId <= 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new StatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var item = service.FindCatalogItem(catalogItemId);
