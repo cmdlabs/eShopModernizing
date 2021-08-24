@@ -1,4 +1,6 @@
 ﻿using eShopLegacyMVC.Models.Infrastructure;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
@@ -7,8 +9,12 @@ namespace eShopLegacyMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext() : base("name=CatalogDBContext")
+        public CatalogDBContext(IConfiguration configuration, Func<CatalogDBInitializer> initializerFactory) : base("name=CatalogDBContext")
         {
+            if (configuration.GetValue<bool>("UseMocks"))
+            {
+                Database.SetInitializer<CatalogDBContext>(initializerFactory());
+            }
         }
 
         public DbSet<CatalogItem> CatalogItems { get; set; }

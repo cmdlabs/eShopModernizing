@@ -1,29 +1,12 @@
-﻿using Autofac;
-using Autofac.Integration.Mvc;
-using eShopLegacyMVC.Models;
-using eShopLegacyMVC.Models.Infrastructure;
-using eShopLegacyMVC.Modules;
-using log4net;
+﻿using log4net;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
 using System.Diagnostics;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
 
 namespace eShopLegacyMVC
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication //: System.Web.HttpApplication
     {
         private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-        IContainer container;
-
-        protected void Application_Start()
-        {
-            ConfigDataBase();
-        }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
@@ -34,17 +17,6 @@ namespace eShopLegacyMVC
 
             _log.Debug("WebApplication_BeginRequest");
         }
-
-        private void ConfigDataBase()
-        {
-            var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
-
-            if (!mockData)
-            {
-                Database.SetInitializer<CatalogDBContext>(container.Resolve<CatalogDBInitializer>());
-            }
-        }
-
     }
 
     public class ActivityIdHelper
