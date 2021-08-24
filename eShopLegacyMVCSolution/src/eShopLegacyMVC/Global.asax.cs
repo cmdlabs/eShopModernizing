@@ -22,17 +22,7 @@ namespace eShopLegacyMVC
 
         protected void Application_Start()
         {
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigDataBase();
-        }
-
-        /// <summary>
-        /// Track the machine name and the start time for the session inside the current session
-        /// </summary>
-        protected void Session_Start(Object sender, EventArgs e)
-        {
-            HttpContextHelper.Current.Session["MachineName"] = Environment.MachineName;
-            HttpContextHelper.Current.Session["SessionStartTime"] = DateTime.Now;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
