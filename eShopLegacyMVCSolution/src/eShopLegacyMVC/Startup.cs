@@ -5,17 +5,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using eShopLegacyMVC.Modules;
+using log4net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 
 namespace eShopLegacyMVC
 {
@@ -63,6 +68,18 @@ namespace eShopLegacyMVC
                 app.UseExceptionHandler("/Error");
             }
 
+            var log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+            app.Use(async (context, next) =>
+            {
+                LogicalThreadContext.Properties["activityid"] = new ActivityIdHelper();
+
+                LogicalThreadContext.Properties["requestinfo"] = new WebRequestInfo(context);
+
+                log.Debug("BeginRequest");
+
+                await next.Invoke();
+            });
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
@@ -76,6 +93,35 @@ namespace eShopLegacyMVC
 
         private void ConfigureMvcOptions(MvcOptions mvcOptions)
         { 
+        }
+
+        public class ActivityIdHelper
+        {
+            public override string ToString()
+            {
+                if (Trace.CorrelationManager.ActivityId == Guid.Empty)
+                {
+                    Trace.CorrelationManager.ActivityId = Guid.NewGuid();
+                }
+
+                return Trace.CorrelationManager.ActivityId.ToString();
+            }
+        }
+
+        public class WebRequestInfo
+        {
+            private readonly HttpContext context;
+
+            public WebRequestInfo(HttpContext context)
+            {
+                this.context = context;
+            }
+
+
+            public override string ToString()
+            {
+                return context.Request?.GetDisplayUrl() + ", " + context.Request?.Headers[HeaderNames.UserAgent];
+            }
         }
     }
 }

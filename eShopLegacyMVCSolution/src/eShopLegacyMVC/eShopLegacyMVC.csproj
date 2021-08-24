@@ -13,11 +13,6 @@
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Content Update="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
