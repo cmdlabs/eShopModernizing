@@ -1264,3 +1264,13 @@ Warning	NETSDK1086	A FrameworkReference for 'Microsoft.AspNetCore.App' was inclu
 https://docs.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/example-migration-eshop provides manual guidance on porting.
 
 Working through errors one by one using guidance from the above, and got the app to run as a .net 5.0 app.  See branch commit history for specific changes.
+
+## Moving to docker
+
+Right-click on project, "Add Docker Support..." - select linux.
+
+Adds a default docker file.
+
+Attempting to run warns that Docker is configured for windows containers - unable to test further on windows.
+
+Will pull on a linux machine and use docker build.

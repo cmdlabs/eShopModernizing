@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
     <TypeScriptToolsVersion>latest</TypeScriptToolsVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UserSecretsId>cc43c925-a7f4-4c40-9f28-0d87896ead37</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
@@ -42,6 +45,7 @@
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.ApplicationInsights.Web" Version="2.9.1" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
     <PackageReference Include="Modernizr" Version="2.8.3" />
     <PackageReference Include="Pipelines.Sockets.Unofficial" Version="1.0.7" />
     <PackageReference Include="popper.js" Version="1.14.3" />
