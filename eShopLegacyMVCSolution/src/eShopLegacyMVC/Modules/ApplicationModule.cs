@@ -8,10 +8,12 @@ namespace eShopLegacyMVC.Modules
     public class ApplicationModule : Module
     {
         private bool useMockData;
+        private readonly string connectionString;
 
-        public ApplicationModule(bool useMockData)
+        public ApplicationModule(bool useMockData, string connectionString)
         {
             this.useMockData = useMockData;
+            this.connectionString = connectionString;
         }
         protected override void Load(ContainerBuilder builder)
         {
@@ -29,6 +31,7 @@ namespace eShopLegacyMVC.Modules
             }
 
             builder.RegisterType<CatalogDBContext>()
+                .WithParameter("connectionString", connectionString)
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<CatalogDBInitializer>()

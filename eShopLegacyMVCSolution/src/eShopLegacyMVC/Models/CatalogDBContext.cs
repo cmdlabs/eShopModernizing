@@ -9,12 +9,9 @@ namespace eShopLegacyMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext(IConfiguration configuration, Func<CatalogDBInitializer> initializerFactory) : base("name=CatalogDBContext")
+        public CatalogDBContext(Func<CatalogDBInitializer> initializerFactory, string connectionString) : base(connectionString)
         {
-            if (configuration.GetValue<bool>("UseMocks"))
-            {
-                Database.SetInitializer<CatalogDBContext>(initializerFactory());
-            }
+            Database.SetInitializer(initializerFactory());
         }
 
         public DbSet<CatalogItem> CatalogItems { get; set; }

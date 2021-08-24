@@ -45,15 +45,13 @@ namespace eShopLegacyMVC
                 {
                     options.UseMemberCasing();
                 });
-
         }
 
-        public void ConfigureContainer(ContainerBuilder builder, IConfiguration configuration)
+        public void ConfigureContainer(ContainerBuilder builder)
         {
-            // Register your own things directly with Autofac here. Don't
-            // call builder.Populate(), that happens in AutofacServiceProviderFactory
-            // for you.
-            builder.RegisterModule(new ApplicationModule(configuration.GetValue<bool>("UseMockData")));
+            bool useMockData = Configuration.GetValue<bool>("UseMockData");
+            string connectionString = Configuration.GetConnectionString("CatalogDBContext");
+            builder.RegisterModule(new ApplicationModule(useMockData, connectionString));            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
