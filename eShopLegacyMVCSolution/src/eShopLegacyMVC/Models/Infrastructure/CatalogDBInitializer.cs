@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
 using System.Globalization;
 using System.IO;
@@ -20,11 +21,13 @@ namespace eShopLegacyMVC.Models.Infrastructure
 
         private CatalogItemHiLoGenerator indexGenerator;
         private bool useCustomizationData;
+        private IHostEnvironment hostEnvironment;
 
-        public CatalogDBInitializer(CatalogItemHiLoGenerator indexGenerator)
+        public CatalogDBInitializer(CatalogItemHiLoGenerator indexGenerator, IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             this.indexGenerator = indexGenerator;
-            useCustomizationData = bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
+            this.hostEnvironment = hostEnvironment;
+            useCustomizationData = configuration.GetValue<bool>("UseCustomizationData");
         }
 
         protected override void Seed(CatalogDBContext context)
@@ -60,7 +63,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
         private void AddCatalogBrands(CatalogDBContext context)
         {
             var preconfiguredBrands = useCustomizationData
-                ? GetCatalogBrandsFromFile()
+                ? GetCatalogBrandsFromFile(hostEnvironment.ContentRootPath)
                 : PreconfiguredData.GetPreconfiguredCatalogBrands();
 
             int sequenceId = GetSequenceIdFromSelectedDBSequence(context, DBBrandSequenceName);
@@ -77,7 +80,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
         private void AddCatalogItems(CatalogDBContext context)
         {
             var preconfiguredItems = useCustomizationData
-                ? GetCatalogItemsFromFile(context)
+                ? GetCatalogItemsFromFile(context, hostEnvironment.ContentRootPath)
                 : PreconfiguredData.GetPreconfiguredCatalogItems();
 
             foreach (var item in preconfiguredItems)
@@ -92,7 +95,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
 
         private IEnumerable<CatalogType> GetCatalogTypesFromFile()
         {
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            var contentRootPath = hostEnvironment.ContentRootPath;
             string csvFileCatalogTypes = Path.Combine(contentRootPath, "Setup", "CatalogTypes.csv");
 
             if (!File.Exists(csvFileCatalogTypes))
@@ -126,9 +129,8 @@ namespace eShopLegacyMVC.Models.Infrastructure
             };
         }
 
-        static IEnumerable<CatalogBrand> GetCatalogBrandsFromFile()
+        static IEnumerable<CatalogBrand> GetCatalogBrandsFromFile(string contentRootPath)
         {
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
             string csvFileCatalogBrands = Path.Combine(contentRootPath, "Setup", "CatalogBrands.csv");
 
             if (!File.Exists(csvFileCatalogBrands))
@@ -162,9 +164,8 @@ namespace eShopLegacyMVC.Models.Infrastructure
             };
         }
 
-        static IEnumerable<CatalogItem> GetCatalogItemsFromFile(CatalogDBContext context)
+        static IEnumerable<CatalogItem> GetCatalogItemsFromFile(CatalogDBContext context, string contentRootPath)
         {
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
             string csvFileCatalogItems = Path.Combine(contentRootPath, "Setup", "CatalogItems.csv");
 
             if (!File.Exists(csvFileCatalogItems))
@@ -340,7 +341,7 @@ namespace eShopLegacyMVC.Models.Infrastructure
             {
                 return;
             }
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            var contentRootPath = hostEnvironment.ContentRootPath;
             DirectoryInfo picturePath = new DirectoryInfo(Path.Combine(contentRootPath, "Pics"));
             foreach (FileInfo file in picturePath.GetFiles())
             {
