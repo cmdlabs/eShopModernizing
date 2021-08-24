@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using eShopLegacyMVC.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +41,14 @@ namespace eShopLegacyMVC
                     options.UseMemberCasing();
                 });
 
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder, IConfiguration configuration)
+        {
+            // Register your own things directly with Autofac here. Don't
+            // call builder.Populate(), that happens in AutofacServiceProviderFactory
+            // for you.
+            builder.RegisterModule(new ApplicationModule(configuration.GetValue<bool>("UseMockData")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

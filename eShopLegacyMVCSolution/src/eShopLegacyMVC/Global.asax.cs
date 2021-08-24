@@ -22,10 +22,6 @@ namespace eShopLegacyMVC
 
         protected void Application_Start()
         {
-            container = RegisterContainer();
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigDataBase();
         }
@@ -47,24 +43,6 @@ namespace eShopLegacyMVC
             LogicalThreadContext.Properties["requestinfo"] = new WebRequestInfo();
 
             _log.Debug("WebApplication_BeginRequest");
-        }
-
-        /// <summary>
-        /// http://docs.autofac.org/en/latest/integration/mvc.html
-        /// </summary>
-        protected IContainer RegisterContainer()
-        {
-            var builder = new ContainerBuilder();
-
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
-            var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
-            builder.RegisterModule(new ApplicationModule(mockData));
-
-            var container = builder.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
-            return container;
         }
 
         private void ConfigDataBase()
