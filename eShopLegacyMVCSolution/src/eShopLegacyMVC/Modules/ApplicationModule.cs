@@ -28,23 +28,18 @@ namespace eShopLegacyMVC.Modules
                 builder.RegisterType<CatalogService>()
                     .As<ICatalogService>()
                     .InstancePerLifetimeScope();
+
+                // TODO: More conventionally, would move the below to services.AddDbContext in Startup.cs
+                builder.RegisterType<CatalogDBContext>()
+                .InstancePerLifetimeScope();
+
+                builder.Register(c =>
+                {
+                    var configuration = c.Resolve<IConfiguration>();
+                    var optionsBuilder = new DbContextOptionsBuilder<CatalogDBContext>();
+                    return optionsBuilder.UseSqlServer(configuration.GetConnectionString("CatalogDBContext")).Options;
+                }).AsSelf().InstancePerLifetimeScope();
             }
-
-            builder.RegisterType<CatalogDBContext>()
-                .InstancePerLifetimeScope();
-
-            builder.Register(c =>
-            {
-                var configuration = c.Resolve<IConfiguration>();
-                var optionsBuilder = new DbContextOptionsBuilder<CatalogDBContext>();
-                return optionsBuilder.UseSqlServer(configuration.GetConnectionString("CatalogDBContext")).Options;
-            }).AsSelf().InstancePerLifetimeScope();
-
-            builder.RegisterType<CatalogDBInitializer>()
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<CatalogItemHiLoGenerator>()
-                .SingleInstance();
         }
     }
 }

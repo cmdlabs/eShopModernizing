@@ -11,6 +11,7 @@ namespace eShopLegacyMVC.Models.Configurations
             builder.HasKey(ci => ci.Id);
             builder.Property(ci => ci.Id).IsRequired();
             builder.Property(cb => cb.Brand).IsRequired().HasMaxLength(100);
+            builder.HasData(Infrastructure.PreconfiguredData.GetPreconfiguredCatalogBrands());
         }
     }
 }
