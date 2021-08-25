@@ -1,8 +1,8 @@
 using eShopLegacyMVC.Services;
 using log4net;
 using System.IO;
-using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 
 namespace eShopLegacyMVC.Controllers
 {
@@ -11,9 +11,12 @@ namespace eShopLegacyMVC.Controllers
         private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public const string GetPicRouteName = "GetPicRouteTemplate";
         private ICatalogService service;
-        public PicController(ICatalogService service)
+        private readonly IWebHostEnvironment webHostEnvironment;
+
+        public PicController(ICatalogService service, IWebHostEnvironment webHostEnvironment)
         {
             this.service = service;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Pic/5.png
@@ -24,14 +27,14 @@ namespace eShopLegacyMVC.Controllers
             _log.Info($"Now loading... /items/Index?{catalogItemId}/pic");
             if (catalogItemId <= 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             var item = service.FindCatalogItem(catalogItemId);
             if (item != null)
             {
-                var webRoot = Server.MapPath("~/Pics");
-                var path = Path.Combine(webRoot, item.PictureFileName);
+                var webRoot = this.webHostEnvironment.WebRootPath;
+                var path = Path.Combine(webRoot, "Pics" ,item.PictureFileName);
                 string imageFileExtension = Path.GetExtension(item.PictureFileName);
                 string mimetype = GetImageMimeTypeFromImageFileExtension(imageFileExtension);
                 var buffer = System.IO.File.ReadAllBytes(path);
