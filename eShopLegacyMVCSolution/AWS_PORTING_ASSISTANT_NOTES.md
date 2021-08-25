@@ -30,6 +30,7 @@ Now just build failures.
 
 ## Standalone tool
 
+Completing the port resulted in a thorough migration, but still key steps to be done manually.  See commit history on the branch for details.
 
 
 
