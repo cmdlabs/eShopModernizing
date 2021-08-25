@@ -3,6 +3,35 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="wwwroot\fonts\Montserrat-Bold.eot" />
+    <None Include="wwwroot\fonts\Montserrat-Bold.svg" />
+    <None Include="wwwroot\fonts\Montserrat-Bold.ttf" />
+    <None Include="wwwroot\fonts\Montserrat-Bold.woff" />
+    <None Include="wwwroot\fonts\Montserrat-Bold.woff2" />
+    <None Include="wwwroot\fonts\Montserrat-Regular.eot" />
+    <None Include="wwwroot\fonts\Montserrat-Regular.svg" />
+    <None Include="wwwroot\fonts\Montserrat-Regular.ttf" />
+    <None Include="wwwroot\fonts\Montserrat-Regular.woff" />
+    <None Include="wwwroot\fonts\Montserrat-Regular.woff2" />
+    <None Include="wwwroot\Images\brand.png" />
+    <None Include="wwwroot\Images\brand_dark.png" />
+    <None Include="wwwroot\Images\main_banner.png" />
+    <None Include="wwwroot\Images\main_footer_text.png" />
+    <None Include="wwwroot\Pics\1.png" />
+    <None Include="wwwroot\Pics\10.png" />
+    <None Include="wwwroot\Pics\11.png" />
+    <None Include="wwwroot\Pics\12.png" />
+    <None Include="wwwroot\Pics\2.png" />
+    <None Include="wwwroot\Pics\3.png" />
+    <None Include="wwwroot\Pics\4.png" />
+    <None Include="wwwroot\Pics\5.png" />
+    <None Include="wwwroot\Pics\6.png" />
+    <None Include="wwwroot\Pics\7.png" />
+    <None Include="wwwroot\Pics\8.png" />
+    <None Include="wwwroot\Pics\9.png" />
+    <None Include="wwwroot\Pics\dummy.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="*" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="*" />
