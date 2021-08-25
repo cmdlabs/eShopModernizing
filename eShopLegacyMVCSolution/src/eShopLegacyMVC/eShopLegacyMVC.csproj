@@ -3,9 +3,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="*" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="*" />
-    <PackageReference Include="Autofac" Version="4.9.2" />
+    <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="bootstrap" Version="4.4.0" />
     <PackageReference Include="EntityFramework" Version="6.3.0" />
     <PackageReference Include="jQuery" Version="3.4.0" />

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using eShopLegacyMVC.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,13 @@ namespace eShopLegacyMVC
             services.AddControllersWithViews();
             //Added Services
         }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            bool useMockData = Configuration.GetValue<bool>("UseMockData");
+            builder.RegisterModule(new ApplicationModule(useMockData));
+        }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
