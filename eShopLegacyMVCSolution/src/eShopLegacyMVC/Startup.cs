@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using eShopLegacyMVC.Models;
 using eShopLegacyMVC.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -68,6 +69,8 @@ namespace eShopLegacyMVC
                     name: "default",
                     pattern: "{controller=Catalog}/{action=Index}/{id?}");
             });
+
+            app.ApplicationServices.GetRequiredService<CatalogDBContext>().Database.EnsureCreated();
         }
     }
 
