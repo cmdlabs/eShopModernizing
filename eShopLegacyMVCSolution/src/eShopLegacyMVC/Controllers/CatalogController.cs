@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Net;
-using System.Web.Mvc;
 using eShopLegacyMVC.Models;
 using eShopLegacyMVC.Services;
 using log4net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace eShopLegacyMVC.Controllers
 {
     public class CatalogController : Controller
     {
         private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         private ICatalogService service;
-
         public CatalogController(ICatalogService service)
         {
             this.service = service;
@@ -35,13 +34,14 @@ namespace eShopLegacyMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             CatalogItem catalogItem = service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            AddUriPlaceHolder(catalogItem);
 
+            AddUriPlaceHolder(catalogItem);
             return View(catalogItem);
         }
 
@@ -81,11 +81,13 @@ namespace eShopLegacyMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             CatalogItem catalogItem = service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
+
             AddUriPlaceHolder(catalogItem);
             ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
             ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
@@ -105,6 +107,7 @@ namespace eShopLegacyMVC.Controllers
                 service.UpdateCatalogItem(catalogItem);
                 return RedirectToAction("Index");
             }
+
             ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
             ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
             return View(catalogItem);
@@ -118,13 +121,14 @@ namespace eShopLegacyMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             CatalogItem catalogItem = service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            AddUriPlaceHolder(catalogItem);
 
+            AddUriPlaceHolder(catalogItem);
             return View(catalogItem);
         }
 
@@ -146,6 +150,7 @@ namespace eShopLegacyMVC.Controllers
             {
                 service.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -159,7 +164,12 @@ namespace eShopLegacyMVC.Controllers
 
         private void AddUriPlaceHolder(CatalogItem item)
         {
-            item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);            
+            item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new
+            {
+            catalogItemId = item.Id
+            }
+
+            , this.Request.Url.Scheme);
         }
     }
 }

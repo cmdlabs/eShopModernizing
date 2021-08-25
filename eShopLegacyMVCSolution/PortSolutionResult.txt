@@ -1,0 +1,407 @@
+==========
+References
+==========
+eShopLegacyMVC
+eShopLegacyMVC.Controllers
+eShopLegacyMVC.Services
+eShopLegacyMVC.ViewModel
+eShopLegacyMVC.Models
+eShopLegacyMVC.Modules
+eShopLegacyMVC.Models.Infrastructure
+System
+System.Collections.Generic
+System.Linq
+System.Threading.Tasks
+Microsoft.AspNetCore.Hosting
+Microsoft.Extensions.Configuration
+Microsoft.Extensions.Hosting
+Microsoft.Extensions.Logging
+Microsoft.AspNetCore.Builder
+Microsoft.AspNetCore.HttpsPolicy
+Microsoft.AspNetCore.Mvc
+Microsoft.Extensions.DependencyInjection
+System.Net
+log4net
+Microsoft.AspNetCore.Mvc.Rendering
+System.IO
+System.Web
+System.ComponentModel.DataAnnotations.Schema
+System.Data.Entity.ModelConfiguration
+Microsoft.EntityFrameworkCore
+System.ComponentModel
+System.ComponentModel.DataAnnotations
+Autofac
+Microsoft.Data.SqlClient
+System.Configuration
+System.Globalization
+System.IO.Compression
+System.Text.RegularExpressions
+System.Web.Hosting
+System.Reflection
+project.all
+
+===============
+DownloadedFiles
+===============
+project.all.json
+system.configuration.json
+system.web.json
+
+==============
+ProjectResults
+==============
+----------------------
+Showing results for: C:\Users\Administrator\Desktop\eShopModernizing\eShopLegacyMVCSolution\src\eShopLegacyMVC\eShopLegacyMVC.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+
+===========
+BuildErrors
+===========
+------------------
+BUILD ERRORS FOR: C:\Users\Administrator\Desktop\eShopModernizing\eShopLegacyMVCSolution\src\eShopLegacyMVC\eShopLegacyMVC.csproj
+------------------
+
+BuildError: CS0400: The type or namespace name 'System' could not be found in the global namespace (are you missing an assembly reference?)
+Count: 1
+
+BuildError: CS0518: Predefined type 'System.String' is not defined or imported
+Count: 221
+
+BuildError: CS0246: The type or namespace name 'FrameworkDisplayName' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'System' could not be found (are you missing a using directive or an assembly reference?)
+Count: 54
+
+BuildError: CS0246: The type or namespace name 'Microsoft' could not be found (are you missing a using directive or an assembly reference?)
+Count: 19
+
+BuildError: CS0246: The type or namespace name 'log4net' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'Autofac' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0518: Predefined type 'System.Object' is not defined or imported
+Count: 418
+
+BuildError: CS0518: Predefined type 'System.Void' is not defined or imported
+Count: 77
+
+BuildError: CS0246: The type or namespace name 'IHostBuilder' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'IConfiguration' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'IServiceCollection' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'IApplicationBuilder' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'IWebHostEnvironment' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'Controller' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0518: Predefined type 'System.Int32' is not defined or imported
+Count: 169
+
+BuildError: CS0246: The type or namespace name 'ActionResult' could not be found (are you missing a using directive or an assembly reference?)
+Count: 9
+
+BuildError: CS0518: Predefined type 'System.Nullable`1' is not defined or imported
+Count: 3
+
+BuildError: CS0518: Predefined type 'System.Boolean' is not defined or imported
+Count: 64
+
+BuildError: CS0246: The type or namespace name 'IEnumerable<>' could not be found (are you missing a using directive or an assembly reference?)
+Count: 14
+
+BuildError: CS0246: The type or namespace name 'ILog' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'HttpPostAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'HttpPost' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'ValidateAntiForgeryTokenAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'ValidateAntiForgeryToken' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'BindAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'Bind' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'Include' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'ActionNameAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'ActionName' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'HttpGetAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'HttpGet' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'RouteAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'Route' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'Name' could not be found (are you missing a using directive or an assembly reference?)
+Count: 9
+
+BuildError: CS0246: The type or namespace name 'DbContext' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'DbSet<>' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'DbModelBuilder' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'EntityTypeConfiguration<>' could not be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'DbContextOptionsBuilder' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0518: Predefined type 'System.Decimal' is not defined or imported
+Count: 7
+
+BuildError: CS0246: The type or namespace name 'RequiredAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'Required' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'RegularExpressionAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'RegularExpression' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'RangeAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 4
+
+BuildError: CS0246: The type or namespace name 'Range' could not be found (are you missing a using directive or an assembly reference?)
+Count: 4
+
+BuildError: CS0246: The type or namespace name 'DataTypeAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'DataType' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'ErrorMessage' could not be found (are you missing a using directive or an assembly reference?)
+Count: 4
+
+BuildError: CS0103: The name 'DataType' does not exist in the current context
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'DisplayAttribute' could not be found (are you missing a using directive or an assembly reference?)
+Count: 8
+
+BuildError: CS0246: The type or namespace name 'Display' could not be found (are you missing a using directive or an assembly reference?)
+Count: 8
+
+BuildError: CS0246: The type or namespace name 'CreateDatabaseIfNotExists<>' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'Dictionary<,>' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'String' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0115: 'CatalogDBInitializer.Seed(CatalogDBContext)': no suitable method found to override
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'List<>' could not be found (are you missing a using directive or an assembly reference?)
+Count: 8
+
+BuildError: CS0246: The type or namespace name 'Module' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'ContainerBuilder' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'IDisposable' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0518: Predefined type 'System.Int64' is not defined or imported
+Count: 2
+
+BuildError: CS0103: The name 'Math' does not exist in the current context
+Count: 1
+
+BuildError: CS1729: 'object' does not contain a constructor that takes 0 arguments
+Count: 10
+
+BuildError: CS1061: 'CatalogDBContext' does not contain a definition for 'SaveChanges' and no accessible extension method 'SaveChanges' accepting a first argument of type 'CatalogDBContext' could be found (are you missing a using directive or an assembly reference?)
+Count: 6
+
+BuildError: CS1061: 'CatalogDBContext' does not contain a definition for 'Entry' and no accessible extension method 'Entry' accepting a first argument of type 'CatalogDBContext' could be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0103: The name 'EntityState' does not exist in the current context
+Count: 1
+
+BuildError: CS1061: 'CatalogDBContext' does not contain a definition for 'Dispose' and no accessible extension method 'Dispose' accepting a first argument of type 'CatalogDBContext' could be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0103: The name 'HostingEnvironment' does not exist in the current context
+Count: 4
+
+BuildError: CS0103: The name 'Path' does not exist in the current context
+Count: 8
+
+BuildError: CS0103: The name 'File' does not exist in the current context
+Count: 9
+
+BuildError: CS0518: Predefined type 'System.Char' is not defined or imported
+Count: 13
+
+BuildError: CS0103: The name 'String' does not exist in the current context
+Count: 6
+
+BuildError: CS0246: The type or namespace name 'Exception' could not be found (are you missing a using directive or an assembly reference?)
+Count: 13
+
+BuildError: CS0518: Predefined type 'System.Exception' is not defined or imported
+Count: 13
+
+BuildError: CS0518: Predefined type 'System.Array' is not defined or imported
+Count: 15
+
+BuildError: CS1061: 'string[]' does not contain a definition for 'Count' and no accessible extension method 'Count' accepting a first argument of type 'string[]' could be found (are you missing a using directive or an assembly reference?)
+Count: 14
+
+BuildError: CS0103: The name 'Array' does not exist in the current context
+Count: 10
+
+BuildError: CS0103: The name 'Decimal' does not exist in the current context
+Count: 1
+
+BuildError: CS0103: The name 'NumberStyles' does not exist in the current context
+Count: 1
+
+BuildError: CS0103: The name 'CultureInfo' does not exist in the current context
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'Decimal' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0518: Predefined type 'System.Collections.IEnumerable' is not defined or imported
+Count: 1
+
+BuildError: CS0656: Missing compiler required member 'System.Collections.IEnumerable.GetEnumerator'
+Count: 1
+
+BuildError: CS0656: Missing compiler required member 'System.Collections.IEnumerator.get_Current'
+Count: 1
+
+BuildError: CS0656: Missing compiler required member 'System.Collections.IEnumerator.MoveNext'
+Count: 1
+
+BuildError: CS1061: 'string[]' does not contain a definition for 'Contains' and no accessible extension method 'Contains' accepting a first argument of type 'string[]' could be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS1061: 'CatalogDBContext' does not contain a definition for 'Database' and no accessible extension method 'Database' accepting a first argument of type 'CatalogDBContext' could be found (are you missing a using directive or an assembly reference?)
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'Int64' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0103: The name 'AppDomain' does not exist in the current context
+Count: 1
+
+BuildError: CS0246: The type or namespace name 'DirectoryInfo' could not be found (are you missing a using directive or an assembly reference?)
+Count: 2
+
+BuildError: CS0246: The type or namespace name 'FileInfo' could not be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0103: The name 'ZipFile' does not exist in the current context
+Count: 1
+
+BuildError: CS1729: 'DbContext' does not contain a constructor that takes 1 arguments
+Count: 1
+
+BuildError: CS0103: The name 'DatabaseGeneratedOption' does not exist in the current context
+Count: 1
+
+BuildError: CS0103: The name 'LogManager' does not exist in the current context
+Count: 2
+
+BuildError: CS0103: The name 'System' does not exist in the current context
+Count: 3
+
+BuildError: CS0246: The type or namespace name 'HttpStatusCodeResult' could not be found (are you missing a using directive or an assembly reference?)
+Count: 4
+
+BuildError: CS0103: The name 'HttpStatusCode' does not exist in the current context
+Count: 4
+
+BuildError: CS0103: The name 'Server' does not exist in the current context
+Count: 1
+
+BuildError: CS0103: The name 'NotFound' does not exist in the current context
+Count: 4
+
+BuildError: CS0103: The name 'View' does not exist in the current context
+Count: 7
+
+BuildError: CS0103: The name 'ViewBag' does not exist in the current context
+Count: 8
+
+BuildError: CS0246: The type or namespace name 'SelectList' could not be found (are you missing a using directive or an assembly reference?)
+Count: 8
+
+BuildError: CS0103: The name 'ModelState' does not exist in the current context
+Count: 2
+
+BuildError: CS0103: The name 'RedirectToAction' does not exist in the current context
+Count: 3
+
+BuildError: CS1061: 'ICatalogService' does not contain a definition for 'Dispose' and no accessible extension method 'Dispose' accepting a first argument of type 'ICatalogService' could be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS1061: 'CatalogController' does not contain a definition for 'Url' and no accessible extension method 'Url' accepting a first argument of type 'CatalogController' could be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS1061: 'CatalogController' does not contain a definition for 'Request' and no accessible extension method 'Request' accepting a first argument of type 'CatalogController' could be found (are you missing a using directive or an assembly reference?)
+Count: 1
+
+BuildError: CS0103: The name 'Host' does not exist in the current context
+Count: 1
+
+
+
+

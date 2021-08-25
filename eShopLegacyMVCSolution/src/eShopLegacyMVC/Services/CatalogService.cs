@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using eShopLegacyMVC.Models;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 using eShopLegacyMVC.ViewModel;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 namespace eShopLegacyMVC.Services
 {
@@ -12,7 +12,6 @@ namespace eShopLegacyMVC.Services
     {
         private CatalogDBContext db;
         private CatalogItemHiLoGenerator indexGenerator;
-
         public CatalogService(CatalogDBContext db, CatalogItemHiLoGenerator indexGenerator)
         {
             this.db = db;
@@ -22,23 +21,15 @@ namespace eShopLegacyMVC.Services
         public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex)
         {
             var totalItems = db.CatalogItems.LongCount();
-
-            var itemsOnPage = db.CatalogItems
-                .Include(c => c.CatalogBrand)
-                .Include(c => c.CatalogType)
-                .OrderBy(c => c.Id)
-                .Skip(pageSize * pageIndex)
-                .Take(pageSize)
-                .ToList();
-
-            return new PaginatedItemsViewModel<CatalogItem>(
-                pageIndex, pageSize, totalItems, itemsOnPage);
+            var itemsOnPage = db.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).OrderBy(c => c.Id).Skip(pageSize * pageIndex).Take(pageSize).ToList();
+            return new PaginatedItemsViewModel<CatalogItem>(pageIndex, pageSize, totalItems, itemsOnPage);
         }
 
         public CatalogItem FindCatalogItem(int id)
         {
             return db.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).FirstOrDefault(ci => ci.Id == id);
         }
+
         public IEnumerable<CatalogType> GetCatalogTypes()
         {
             return db.CatalogTypes;
