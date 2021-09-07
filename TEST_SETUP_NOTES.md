@@ -29,4 +29,10 @@ Depends on MSBuild, and VS2019 is recommend, so:
 
 ## Clone eShopModernizing
 
-    git clone https://github.com/dotnet-architecture/eShopModernizing.git
+    git clone https://gitlab.mantelgroup.com.au/cmd/pocs/app-modernisation/dotnet-modernisation-eshop.git
+
+## Install IIS
+
+Required for Optimus assessment which reviews running applications.
+
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
